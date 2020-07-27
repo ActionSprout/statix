@@ -268,6 +268,8 @@ defmodule Statix do
           @statix_key Module.concat(__MODULE__, :__statix__)
 
           def connect(options \\ []) do
+            IO.puts('statix:271')
+
             statix = Statix.new(__MODULE__, options)
             Application.put_env(:statix, @statix_key, statix)
 
@@ -286,6 +288,8 @@ defmodule Statix do
           @statix Statix.new(__MODULE__, [])
 
           def connect(options \\ []) do
+            IO.puts('statix:291')
+
             if @statix != Statix.new(__MODULE__, options) do
               raise(
                 "the current configuration for #{inspect(__MODULE__)} differs from " <>

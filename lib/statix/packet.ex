@@ -33,6 +33,12 @@ defmodule Statix.Packet do
     |> set_option(:tags, options[:tags])
   end
 
+  def build(name, key, val, options) do
+    [key, ?:, val, ?|, metric_type(name)]
+    |> set_option(:sample_rate, options[:sample_rate])
+    |> set_option(:tags, options[:tags])
+  end
+
   metrics = %{
     counter: "c",
     gauge: "g",
